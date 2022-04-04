@@ -30,16 +30,16 @@
 // You declare a pure virtual function by using a pure specifier (= 0)
 // in the declaration of a virtual member function in the class declaration.
 //
-// A �virtual function� has a definition/implementation in the Base class and is preceded by the word "virtual".
+// A "virtual function" has a definition/implementation in the Base class and is preceded by the word "virtual".
 //     	virtual void draw() { cout << "Drawing a Shape"; }
 //
 // This tells the compiler that we want to allow derived classes to define their own version of the
 // virtual function, and, that we want to use Runtime Polymorphism (runtime binding) when we use
 // pointers of the Base class type to point at derived class objects.
 //
-// A �pure virtual function� is declared in the Base class but with NO implementation, and
+// A "pure virtual function" is declared in the Base class but with NO implementation, and
 // is followed by the 'pure virtual' specifier "=0"
-// 	    virtual void draw() = 0;
+// 	    virtual void draw() =0;
 //
 // This tells the compiler that ALL derived classes MUST implement the function.
 //
