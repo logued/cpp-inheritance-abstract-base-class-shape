@@ -65,18 +65,26 @@ int main() //  polymorphism in Action - polymorphism ONLY works with POINTERS (o
 {
     Shape* shapePtr;	// pointer of Base type. Can point at any objects derived from Shape class
 
-    shapePtr = new Circle(2, 3, 40); // object of derived type
+    shapePtr = nullptr;
     // at this point it is not known (by compiler) whether the shapePtr is pointing at
-    // a Circle or at a Rectangle.  At the point where the draw() function is called, then
-    // the type of the Object is examined, and the appropriate draw() function is called
-    // - in this case the object is a Circle, so th edraw() function defined in the Circle
-    // class is called.  (This is sensible behaviour !)
+    // a Circle or at a Rectangle. It could point to either.
+
+    shapePtr = new Circle(2, 3, 40); // object of derived type
+
 
     shapePtr->draw();	// late binding - draw() function determined at runtime
-    delete shapePtr;
+    // At the point where the draw() function is called,
+    // the type of the Object is examined, and the appropriate draw() function is called
+    // - in this case the object is a Circle, so the draw() function defined in the Circle
+    // class is called.  This is called "late binding" or "dynamic binding".
+    // (This is sensible behaviour !)
+
+    delete shapePtr;    // free the memory
 
     shapePtr = new Rectangle(3, 4, 10, 15);
-    shapePtr->draw();
+
+    shapePtr->draw();   // dynamically binds to the draw() method of the Rectangle class
+
     delete shapePtr;
 
     // Vector of pointers to Shape objects
@@ -86,7 +94,7 @@ int main() //  polymorphism in Action - polymorphism ONLY works with POINTERS (o
 
     for (Shape* shapePtr : shapes)
     {
-        shapePtr->draw();		// polymorphic behaviour
+        shapePtr->draw();		// polymorphic behaviour, uses dynamic binding
     }
 
     // finally, we have to free (delete) the dynamically allocated Shape objects
@@ -95,13 +103,13 @@ int main() //  polymorphism in Action - polymorphism ONLY works with POINTERS (o
     {
         delete rShapePtr;	// free the memory;
     }
-    shapes.clear(); // clear the contents of the vector as the objects it points to have been freed.
+    shapes.clear(); // clear the contents of the vector as the objects they point to have been freed.
 
     // Shape s;		// won't be allowed by compiler, can't instantiate an abstract class
     // shapePtr = new Shape();  // won't be allowed
 }
 
-void fillShapesVector(vector<Shape*>& vec)
+void fillShapesVector(vector<Shape*>& vec)  // reference to a vector
 {
     vec.push_back(new Circle(1, 3, 5));	// dynamically allocated Circle object
 
