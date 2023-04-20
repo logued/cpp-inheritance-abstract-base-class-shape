@@ -7,5 +7,7 @@ using namespace std;
 
 //Implementation of the virtual destructor
 
-Shape::~Shape() { cout << "~Shape() called. The Shape base destructor is called after derived destructor.\n"; }
+Shape::~Shape() {
+    cout << "~Shape() called. The Shape base destructor is called after derived destructor.\n";
+}
 
