@@ -18,8 +18,9 @@ public:
         this->width = width;
         this->height = height;
     }
-    virtual void draw();
-    ~Rectangle();
+
+    void draw() override ;
+    ~Rectangle() override ;
 };
 
 #endif //INHERITANCE_SHAPE_ABSTRACT_BASE_CLASS_RECTANGLE_H

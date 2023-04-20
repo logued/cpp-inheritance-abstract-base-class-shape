@@ -19,8 +19,9 @@ public:
         this->radius = radius;
     }
 
-    virtual void draw();
-    ~Circle();
+    void draw() override;   // "override" -although not required
+                            // - reminds us that this overrides a Base function
+    ~Circle() override;
 
 };
 

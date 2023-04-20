@@ -5,7 +5,7 @@
 #include <iostream>
 using namespace std;
 
-void Circle::draw() {	    // implementation of draw
+void Circle::draw() {	    // implementation of draw()
     cout << "drawing a Circle...\ndone drawing." << endl;
 }
 
