@@ -1,6 +1,5 @@
-#include <iostream>
-
-// AbstractBaseShape.cpp				20th April 2023
+/**
+ * AbstractBaseShape.cpp				April 2024
 //
 // Virtual functions are member functions whose behavior can be
 // overridden in derived classes. A function can only be overridden
@@ -55,14 +54,13 @@
 // of this base class type.  (In our example, we can't make Shape objects, because
 // Shape is an Abstract class.)
 //                                  [note, some duplication in above needs to be removed]
-
+*/
 #include <iostream>
 #include <vector>
 
 #include "Circle.h"
 #include "Shape.h"
 #include "Rectangle.h"
-
 using namespace std;
 
 void fillShapesVector(vector<Shape*>& vec); // function prototype
@@ -81,10 +79,10 @@ int main() //  polymorphism in Action - polymorphism ONLY works with POINTERS (o
 
     shapePtr->draw();	// late binding - draw() function determined at runtime
     // At the point where the draw() function is called,
-    // the type of the Object is examined, and the appropriate draw() function is called
+    // the type of the object is examined, and the appropriate draw() function is called
     // - in this case the object is a Circle, so the draw() function defined in the Circle
     // class is called.  This is called "late binding" or "dynamic binding".
-    // (This is sensible behaviour !)
+    // (This is sensible behaviour !) This is polymorphic behaviour.
 
     delete shapePtr;    // free the memory
 
