@@ -84,7 +84,7 @@ int main() //  polymorphism in Action - polymorphism ONLY works with POINTERS (o
     // class is called.  This is called "late binding" or "dynamic binding".
     // (This is sensible behaviour !) This is polymorphic behaviour.
 
-    delete shapePtr;    // free the memory
+    delete shapePtr;    // free the memory that the Circle object occupies
 
     shapePtr = new Rectangle(3, 4, 10, 15);
 
